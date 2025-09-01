@@ -1,0 +1,30 @@
+
+/* Custom utilities layered on top of Tailwind (for safety if Tailwind fails) */
+:root { --radius: 16px; }
+.btn, .btn-primary, .btn-secondary { @apply px-3 py-2 rounded-2xl font-semibold shadow border transition active:scale-[.98]; }
+.btn { @apply bg-gray-800 border-white/10 hover:bg-gray-700; }
+.btn-primary { @apply bg-indigo-600 hover:bg-indigo-500 border-indigo-400/30; }
+.btn-secondary { @apply bg-gray-800 hover:bg-gray-700 border-white/10; }
+
+.input { @apply w-full bg-gray-900 border border-white/10 rounded-2xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500; }
+.label { @apply text-xs uppercase tracking-wider text-gray-400 mb-1 block; }
+.card { @apply bg-gray-900/70 border border-white/10 rounded-2xl p-4 shadow-lg; }
+
+.stat-card { @apply bg-gradient-to-br from-gray-900 to-gray-800 border border-white/10 rounded-2xl p-4 shadow; }
+.stat-label { @apply text-xs text-gray-400; }
+.stat-value { @apply text-2xl font-extrabold mt-1; }
+
+.expense-item { @apply flex items-start justify-between gap-3 p-3 rounded-2xl bg-gray-900/70 border border-white/10; }
+.expense-note { @apply text-sm text-gray-300; }
+.expense-meta { @apply text-xs text-gray-400; }
+.expense-amount { @apply text-lg font-bold; }
+.group-header { @apply text-sm font-semibold text-gray-300 mt-6 mb-2; }
+.actions button { @apply text-xs px-2 py-1 rounded-xl bg-gray-800 hover:bg-gray-700 border border-white/10; }
+
+/* Print to A4-friendly styles */
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  header, footer, #expenseForm, #searchInput, #dateFilter, #categoryFilter, #clearFilters, #exportCsvBtn, #exportPdfBtn, #installBtn { display:none !important; }
+  main { padding: 0; }
+  .card, .expense-item { box-shadow:none; }
+}
